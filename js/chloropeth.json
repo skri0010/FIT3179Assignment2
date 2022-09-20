@@ -10,10 +10,10 @@
     },
     "transform": [
       {
-        "lookup": "properties.NAME",
+        "lookup": "properties.Name",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/js/chloropeth.json"
+            "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/_202208230401050_labour_force_by_strata_and_state_1982_2021_dataset.csv"
           },
           "key": "State",
           "fields": ["Unemployed"]
@@ -29,7 +29,7 @@
         "scale": {"type": "log"}
       },
       "tooltip": [
-        {"field": "properties.NAME", "type": "nominal", "title": "state"},
+        {"field": "properties.Name", "type": "nominal", "title": "State"},
         {"field": "Unemployed", "type": "quantitative"}
       ]
     }
