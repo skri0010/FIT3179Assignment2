@@ -15,8 +15,8 @@
           "data": {
             "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/blob/main/js/chloropeth.json"
           },
-          "key": "Country/state",
-          "fields": ["Unemployed ('000)"]
+          "key": "Country",
+          "fields": ["Unemployed"]
         }
       },
       {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
