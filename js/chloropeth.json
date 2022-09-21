@@ -1,36 +1,42 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "COVID-19 Active Cases (10 Oct 2020)",
+    "title": "Unemployment Rate in Malaysia as of 2021",
     "width": 800,
     "height": 400,
     "projection": {"type": "equalEarth"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/js/test.topojson",
+    "data": 
+    {
+      "url": "/js/test.topojson",
       "format": {"type": "topojson", "feature": "states"}
     },
+
     "transform": [
       {
         "lookup": "properties.Name",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/_202208230401050_labour_force_by_strata_and_state_1982_2021_dataset.csv"
+            "url": "/data/_202208230401050_labour_force_by_strata_and_state_1982_2021_dataset.csv"
           },
           "key": "State",
           "fields": ["Unemployed"]
         }
       },
-      {"calculate": "datum.Unemployed + 0.1", "as": "Unemployed"}
+      {"calculate": "datum.Unemployed *1000", "as": "Unemployed"}
     ],
-    "mark": {"type": "geoshape"},
+    "mark": {
+      "type": "geoshape",
+      "stroke": "black",
+      "strokeWidth":0.1
+    },
     "encoding": {
       "color": {
         "field": "Unemployed",
         "type": "quantitative",
-        "scale": {"type": "log"}
+        "scale": {"type": "linear"}
       },
       "tooltip": [
         {"field": "properties.Name", "type": "nominal", "title": "State"},
-        {"field": "Unemployed", "type": "quantitative"}
+        {"field": "Unemployed", "type": "quantitative","format":","}
       ]
     }
   }
