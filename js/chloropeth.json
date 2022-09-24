@@ -36,7 +36,7 @@
             "field": "Unemployed",
             "type": "quantitative",
             "scale": {"type": "threshold",
-            "domain": [100, 400,700],
+            "domain": [100, 300 ,700],
             "range": ["#ffffb2", "#fecc5c", "#fd8d3c", "#cc4c02"]
           }
           },
