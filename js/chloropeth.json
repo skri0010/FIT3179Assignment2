@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Malaysia - Unemployed Persons Per 100,000 Population in 2021",
+    "title": "Unemployed Persons Per 100,000 Population (Malaysia 2021)",
     "width": 750,
     "height": 350,
     "projection": {"type": "equirectangular"},
@@ -17,7 +17,7 @@
             "lookup": "properties.Name",
             "from": {
               "data": {
-                "url": "/data/_202208230401050_labour_force_by_strata_and_state_1982_2021_dataset.csv"
+                "url": "/data/LabourForce_Strata_and_State.csv"
               },
               "key": "State",
               "fields": ["Unemployed","Unemployment_rate"]
@@ -35,7 +35,9 @@
           "color": {
             "field": "Unemployed",
             "type": "quantitative",
-            "scale": {"type": "linear", "scheme":"oranges"
+            "scale": {"type": "threshold",
+            "domain": [100, 400,700],
+            "range": ["#ffffb2", "#fecc5c", "#fd8d3c", "#cc4c02"]
           }
           },
           "tooltip": [
