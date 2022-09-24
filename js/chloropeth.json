@@ -42,7 +42,7 @@
           },
           "tooltip": [
             {"field": "properties.Name", "type": "nominal", "title": "State"},
-            {"field": "Unemployed", "type": "quantitative","format":".2f"},
+            {"field": "Unemployed", "type": "quantitative","format":".0f"},
             {"field": "Unemployment_rate", "type": "quantitative","format":".1%","title":"Unemployment Rate"}
           ]
         }
