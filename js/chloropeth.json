@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Unemployed Persons Per 100,000 Population (Malaysia 2021)",
-    "width": 750,
-    "height": 350,
+    "width": 600,
+    "height": 270,
     "projection": {"type": "equirectangular"},
     "layer": [
       {

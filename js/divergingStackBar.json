@@ -1,0 +1,153 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A population pyramid for the US in 2000, created using stack. See https://vega.github.io/vega-lite/examples/concat_population_pyramid.html for a variant of this created using concat.",
+  "title": "Unemployed Person by Gender in Malaysia (2001-2020)",
+  "width": 500,
+  "height": 200,
+  "data": {
+    "url": "/data/Unemployed_by_Gender.csv"
+  },
+  "params": [{
+    "name": "Population_Above",
+    "value": 0,
+    "bind": {
+      "input": "range",
+      "min": 50,
+      "max": 180,
+      "step": 5,
+      "name": "Minimum Population: "
+    }
+  }],
+  "transform": [{
+      "calculate": "datum.Sex == 'Female' ? -datum.Number : datum.Number",
+      "as": "signed_people"
+    },
+    {
+      "filter": "datum.Number > Population_Above"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "Year",
+      "axis": null,
+      "sort": "descending"
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "signed_people",
+      "title": "Population",
+      "axis": {
+        "format": "s"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "Sex",
+          "scale": {
+            "range": ["#675193", "#ca8861"]
+          },
+          "legend": {
+            "orient": "top",
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "signed_people",
+            "type": "quantitative",
+            "title": "Population"
+          },
+          {
+            "field": "Percentage",
+            "type": "quantitative",
+            "title": "Percentage"
+          },
+          {
+            "field": "Year",
+            "type": "quantitative",
+            "title": "Year"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 10,
+        "fontStyle": "italic",
+        "xOffset": -10
+      },
+      "encoding": {
+        "text": {"field": "signed_people", "type": "nominal"},
+        "color": {"value": "white"},
+        "opacity": {
+          "condition": {
+            "test": "datum['signed_people'] >160",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {
+            "field": "signed_people",
+            "type": "quantitative",
+            "title": "Population"
+          },
+          {
+            "field": "Year",
+            "type": "quantitative",
+            "title": "Year"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 10,
+        "fontStyle": "italic",
+        "xOffset": 10
+      },
+      "encoding": {
+        "text": {"field": "signed_people", "type": "nominal"},
+        "color": {"value": "white"},
+        "opacity": {
+          "condition": {
+            "test": "datum['signed_people'] < -130 ",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {
+            "field": "signed_people",
+            "type": "quantitative",
+            "title": "Population"
+          },
+          {
+            "field": "Year",
+            "type": "quantitative",
+            "title": "Year"
+          }
+        ]
+      }
+    }
+
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    }
+  }
+}
