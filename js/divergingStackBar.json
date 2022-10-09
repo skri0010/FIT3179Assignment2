@@ -22,6 +22,7 @@
       "calculate": "datum.Sex == 'Female' ? -datum.Number : datum.Number",
       "as": "signed_people"
     },
+    {"calculate": "datum.Percentage/100", "as": "Percentage"},
     {
       "filter": "datum.Number > Population_Above"
     }
@@ -64,7 +65,8 @@
           {
             "field": "Percentage",
             "type": "quantitative",
-            "title": "Percentage"
+            "title": "Percentage",
+            "format":".1%"
           },
           {
             "field": "Year",
