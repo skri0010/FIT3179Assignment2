@@ -5,7 +5,7 @@
   "width": 500,
   "height": 200,
   "data": {
-    "url": "/data/Unemployed_by_Gender.csv"
+    "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/Unemployed_by_Gender.csv"
   },
   "params": [{
     "name": "Population_Above",
