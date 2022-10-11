@@ -17,7 +17,7 @@
       }
     ],
     "data": {
-      "url": "/data/LabourForce_Education.csv"
+      "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/LabourForce_Education.csv"
     },
     "transform": [
       {"filter": "datum.Year == year_selection"}

@@ -30,7 +30,7 @@
             "lookup": "properties.Name",
             "from": {
               "data": {
-                "url": "/data/_202208230401050_labour_force_by_strata_and_state_1982_2021_dataset.csv"
+                "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/LabourForce_State.csv"
               },
               "key": "State",
               "fields": ["Unemployed","Unemployment_rate","Year","State"]

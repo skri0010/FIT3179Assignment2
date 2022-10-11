@@ -1,14 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/6_advanced_examples/data/earthquake_lite.csv"
-  },
   "vconcat": [{
 
     "width":"container",
       "height": 200,
       "data": {
-        "url": "/data/unemployment-rate.csv"
+        "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/unemployment-rate.csv"
       },
       "transform":[{"calculate": "datum.Unemployment/100", "as": "Unemployment_rate"}],
       "title": "Unemployment Rate Southeast Asia",
@@ -54,7 +51,7 @@
       "width":"container",
       "height": 100,
       "data": {
-        "url": "/data/unemployment-rate.csv"
+        "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/unemployment-rate.csv"
       },
       "mark": {
         "type": "line"

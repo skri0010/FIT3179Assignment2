@@ -4,7 +4,7 @@
     "title": "Labour Force By Industry (2011-2021)",
     "height": 250,
     "data": {
-        "url": "/data/LabourForce_Industry.csv"
+        "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/LabourForce_Industry.csv"
     },
     "params": [{
         "name": "industry",
