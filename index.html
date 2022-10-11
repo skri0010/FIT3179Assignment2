@@ -25,31 +25,97 @@
 <body>
   <div class="page">
     <h1>Labour Force In Malaysia </h1>
+    <p>
+      In 2020, the number of people within the Malaysian labor force was approximately 15.67 million. The size of Malaysia's labor force had been 
+      increasing in the last ten years.However there have been noticable increases in the Unemployment Rate as well. </p>
     <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div id="choropleth_map" class="vis-container"></div>
+      <div class="pure-u-1-1">
+        <div id="idiom1" class="vis-container"></div>
       </div>
     </div>
     <div class="pure-g">
-      <div class="pure-u-2-3">
-        <div id="divergingStackBar" class="vis-container"></div>
+      <div class="pure-u-9-24"style="margin-right: 50px;">
+        <p>
+          The average for 2021 based on 11 countries was 7.48 percent.The highest value was in Brunei: 7.6 percent 
+          and the lowest value was in Cambodia: 0.6 percent. The indicator is available from 2011 to 2021. On the right is a chart for 
+          all countries where data are available. </p>
+        <p>
+          Unemployment is especially hitting youth, with rates in southeast Asian countries on average three to
+four times higher than adult unemployment rates (youth unemployment in developed countries is usually
+1.5-2 times greater than adult unemployment). Part of the problem stems from demographic shifts in the
+structure of the population and the fact that many of the jobs that formerly employed young people no
+longer exist. </p>
       </div>
-      <div class="pure-u-1-3">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+      <div class="pure-u-5-12">
+        <div id="idiom2" class="vis-container"></div>
       </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-11-24" style="margin-right: 50px;">
+        <div id="idiom3" class="vis-container"></div>
+      </div>
+      <div class="pure-u-5-12">
+        <p>
+          Employment by sector separates the working population of the country into three broad group of economic 
+          activities: namely the agriculture, industry and services sectors. Employment in each sector is usually shown as a 
+          percentage of total employment. These three main economic sectors can be disaggregated into additional sub-sectors to provide 
+          further details following the International Standard Industrial Classification (ISIC) System. </p>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-9-24"style="margin-right: 100px;">
+        <p>
+          Although, women have increased their educational status and relevant skills in other to attain
+higher employment standing like their men counterparts, the supposedly skill improvement has
+not translated to job improvement and career prospects for women. 
+
+        </p><p>Despite significant
+improvement in cultural, attitudinal and childcare policies in relation to gender gaps from the
+beginning of the century, female labour participation has been low even in developed countries
+(Lagarde & Ostry, 2018).  </p>
+      </div>
+      <div class="pure-u-12-24">
+        <div id="idiom4" class="vis-container"></div>
+      </div>
+
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-9-24"style="margin-right: 100px;">
+        <p>
+          In an economy, human resources (labour) is the most important factor of production,
+           other than capital and land, that in combination contribute to the output of goods and services 
+           leading to the generation of income, consumption and trade.
+        </p><p> To meet the economic growth aspirations 
+           of the country, the strength, health and skill levels of the workforce are very important determinants. 
+           In this context, the education attainment of the workforce has a direct role in shaping the skill level of workers.  </p>
+      </div>
+      <div class="pure-u-12-24">
+        <div id="idiom5" class="vis-container"></div>
+      </div>
+
     </div>
   </div>
 
 
   <script type="text/javascript">
-    var spec1 = "js/chloropeth.json";
-    vegaEmbed('#choropleth_map', spec1,{ "actions": false }).then(function (result) {
+    var spec1 = "js/choropleth.json";
+    vegaEmbed('#idiom1', spec1,{ "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
-    var spec2 = "js/divergingStackBar.json";
-    vegaEmbed('#divergingStackBar', spec2,{ "actions": false }).then(function (result) {
+    var spec2 = "js/heatmap_brush.json";
+    vegaEmbed('#idiom2', spec2,{ "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec3 = "js/streamgraph.json";
+    vegaEmbed('#idiom3', spec3,{ "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec4 = "js/divergingstackbar.json";
+    vegaEmbed('#idiom4', spec4,{ "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec5 = "js/lollipop.json";
+    vegaEmbed('#idiom5', spec5,{ "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

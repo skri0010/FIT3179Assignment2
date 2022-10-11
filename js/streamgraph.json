@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "title": "Labour Force By Industry (2011-2021)",
+    "height": 250,
+    "data": {
+        "url": "/data/LabourForce_Industry.csv"
+    },
+    "params": [{
+        "name": "industry",
+        "select": {"type": "point", "fields": ["Industry"]},
+        "bind": "legend"
+      }],
+    "mark": "area",
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "axis": {
+                "domain": false,
+                "tickSize": 0
+            }
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "Value",
+            "stack": "center",
+            "axis": null
+        },
+        "color": {
+            "field": "Industry",
+            "scale": {
+                "scheme": "category20b"
+            }
+        },
+        "opacity": {
+            "condition": {"param": "industry", "value": 1},
+            "value": 0.2
+          },
+          "tooltip":[
+            {"field": "Value", "type": "quantitative", "title": "Labour Force"},
+            {"field": "Industry", "type": "ordinal"}
+
+          ]
+    }
+    
+}

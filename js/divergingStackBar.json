@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A population pyramid for the US in 2000, created using stack. See https://vega.github.io/vega-lite/examples/concat_population_pyramid.html for a variant of this created using concat.",
   "title": "Unemployed Person by Gender in Malaysia (2001-2020)",
-  "width": 500,
-  "height": 200,
+  "width": "container",
+  "height": 250,
   "data": {
     "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/Unemployed_by_Gender.csv"
   },

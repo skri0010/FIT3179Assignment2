@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/6_advanced_examples/data/earthquake_lite.csv"
+  },
+  "vconcat": [{
+
+    "width":"container",
+      "height": 200,
+      "data": {
+        "url": "/data/unemployment-rate.csv"
+      },
+      "transform":[{"calculate": "datum.Unemployment/100", "as": "Unemployment_rate"}],
+      "title": "Unemployment Rate Southeast Asia",
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "nominal",
+          "title": "",
+          "scale": {
+            "domain": {
+              "param": "time_brush"
+            }
+          },
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "Country",
+          "type": "nominal",
+          "title": "Country"
+        },
+        "color": {
+          "field": "Unemployment",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "scheme": "Oranges"
+          },
+          "legend": {
+            "title": null
+          }
+        },
+        "tooltip": [
+          {"field": "Unemployment_rate", "type": "quantitative","format":".1%","title":"Unemployment Rate"},
+          {"field": "Code", "type": "ordinal","title":"Country Code"}
+        ]
+      }
+
+    },
+    {
+      "width":"container",
+      "height": 100,
+      "data": {
+        "url": "/data/unemployment-rate.csv"
+      },
+      "mark": {
+        "type": "line"
+      },
+      "title": "Filter Out Data Based on Line Chart",
+      "params": [{
+        "name": "time_brush",
+        "select": {
+          "type": "interval",
+          "encodings": ["x"]
+        }
+      }],
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "axis": {
+            "title": ""
+          }
+        },
+        "y": {
+          "field": "Unemployment",
+          "type": "quantitative",
+          "axis": {
+            "grid": false
+          },
+          "title": "Unemployed"
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "legend": {
+            "title": null
+          }
+        },
+        "tooltip": [
+          {"field": "Unemployment", "type": "quantitative","format":".1%","title":"Unemployment Rate"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    }
+  }
+}
