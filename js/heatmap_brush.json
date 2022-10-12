@@ -98,6 +98,7 @@
     "title": {
       "font": "sans-serif",
       "fontSize": 16
-    }
+    },
+    "background":"#e7f9ff"
   }
 }

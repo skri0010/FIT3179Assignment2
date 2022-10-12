@@ -86,5 +86,6 @@
         },
         "mark": {"type": "geoshape", "fill": null, "stroke": "gray","strokeWidth":0.2}
       }
-    ]
+    ],
+    "config": {"background":"#e7f9ff"}
   }

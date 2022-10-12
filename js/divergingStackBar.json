@@ -150,6 +150,7 @@
     },
     "axis": {
       "grid": false
-    }
+    },
+    "background":"#e7f9ff"
   }
 }

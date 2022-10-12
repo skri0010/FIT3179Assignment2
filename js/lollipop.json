@@ -45,5 +45,6 @@
         "mark": {"type": "image", "width": 70, "height": 35},
         "encoding": {"url": {"field": "URL", "type": "nominal"}}
       }
-    ]
+    ],
+    "config": {"background":"#e7f9ff"}
   }

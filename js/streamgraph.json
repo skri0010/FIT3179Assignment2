@@ -41,6 +41,7 @@
             {"field": "Industry", "type": "ordinal"}
 
           ]
-    }
+    },
+    "config": {"background":"#e7f9ff"}
     
 }
