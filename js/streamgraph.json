@@ -29,7 +29,7 @@
         "color": {
             "field": "Industry",
             "scale": {
-                "scheme": "category20b"
+                "scheme": "set3"
             }
         },
         "opacity": {

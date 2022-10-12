@@ -21,13 +21,15 @@
             }
           },
           "axis": {
-            "labelAngle": 0
+            "labelAngle": 0,
+            "domain": false
           }
         },
         "y": {
           "field": "Country",
           "type": "nominal",
-          "title": "Country"
+          "title": "Country",
+          "axis":{"domain": false}
         },
         "color": {
           "field": "Unemployment",
