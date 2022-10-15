@@ -42,6 +42,9 @@
 
           ]
     },
-    "config": {"background":"#e7f9ff"}
+    "config": {"title": {
+        "font": "sans-serif",
+        "fontSize": 16
+      },"background":"#fcf4e4"}
     
 }

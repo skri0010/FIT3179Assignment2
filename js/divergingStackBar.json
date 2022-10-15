@@ -151,6 +151,10 @@
     "axis": {
       "grid": false
     },
-    "background":"#e7f9ff"
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "background":"#fcf4e4"
   }
 }

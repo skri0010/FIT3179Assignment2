@@ -9,10 +9,21 @@ h1 {
 body {
     background-color: lightgray;
 }
+.subtitle {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+    border-bottom-left-radius:15px;
+    background-color: darkred;
+    font-size: 24pt;
+    font-weight: 900;
+    color: white;
+  }
 
 .page {
     width: 1200px;
-    background-color: #e7f9ff;
+    background-color: #fcf4e4;
     margin: auto;
     padding: 50px;
     padding-top: 35px;
@@ -25,6 +36,9 @@ body {
 .description h2,
 h1 {
     margin-top: 0px;
+    background-color: darkred;
+    color: white;
+    font-size: 32pt;
 }
 
 .description-right {
@@ -42,3 +56,5 @@ h1 {
 .small-font {
     font-size: 14px;
 }
+
+  

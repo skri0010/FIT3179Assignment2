@@ -26,7 +26,8 @@
       "y": {
         "field": "Education",
         "type": "nominal",
-        "title":"Education Level"
+        "title":"Education Level",
+        "axis":{"labels": false}
       },
       "x": {
         "field": "Value",
@@ -46,5 +47,8 @@
         "encoding": {"url": {"field": "URL", "type": "nominal"}}
       }
     ],
-    "config": {"background":"#e7f9ff"}
+    "config": {"title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },"background":"#fcf4e4"}
   }
