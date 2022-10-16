@@ -2,13 +2,13 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "vconcat": [{
 
-    "width":"container",
+    "width":535,
       "height": 200,
       "data": {
         "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/unemployment-rate.csv"
       },
       "transform":[{"calculate": "datum.Unemployment/100", "as": "Unemployment_rate"}],
-      "title": "Unemployment Rate Southeast Asia",
+      "title": "Unemployment Rate Southeast Asia (2001-2021)",
       "mark": "rect",
       "encoding": {
         "x": {
@@ -28,7 +28,7 @@
         "y": {
           "field": "Country",
           "type": "nominal",
-          "title": "Country",
+          "title": null,
           "axis":{"domain": false}
         },
         "color": {
@@ -39,7 +39,7 @@
             "scheme": "Oranges"
           },
           "legend": {
-            "title": null
+            "title": " Rate (%)"
           }
         },
         "tooltip": [
@@ -50,7 +50,7 @@
 
     },
     {
-      "width":"container",
+      "width":535,
       "height": 100,
       "data": {
         "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/unemployment-rate.csv"
@@ -79,13 +79,13 @@
           "axis": {
             "grid": false
           },
-          "title": "Unemployed"
+          "title": "Rate (%)"
         },
         "color": {
-          "field": "Country",
+          "field": "Code",
           "type": "nominal",
           "legend": {
-            "title": null
+            "title": "Country"
           }
         },
         "tooltip": [

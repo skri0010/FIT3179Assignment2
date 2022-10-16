@@ -9,6 +9,9 @@ h1 {
 body {
     background-color: lightgray;
 }
+p {
+    font-size: 14pt;
+}
 .subtitle {
     margin-top: 25px;
     margin-bottom: 25px;

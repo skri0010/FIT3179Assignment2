@@ -3,7 +3,7 @@
   "description": "A population pyramid for the US in 2000, created using stack. See https://vega.github.io/vega-lite/examples/concat_population_pyramid.html for a variant of this created using concat.",
   "title": "Unemployed Person by Gender in Malaysia (2001-2020)",
   "width": "container",
-  "height": 250,
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/Unemployed_by_Gender.csv"
   },
@@ -52,7 +52,7 @@
             "range": ["#675193", "#ca8861"]
           },
           "legend": {
-            "orient": "top",
+            "orient": "bottom",
             "title": null
           }
         },
@@ -81,32 +81,20 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontStyle": "italic",
         "xOffset": -10
       },
       "encoding": {
         "text": {"field": "signed_people", "type": "nominal"},
-        "color": {"value": "white"},
+        "color": {"value": "yellow"},
         "opacity": {
           "condition": {
             "test": "datum['signed_people'] >160",
             "value": 1
           },
           "value": 0
-        },
-        "tooltip": [
-          {
-            "field": "signed_people",
-            "type": "quantitative",
-            "title": "Population"
-          },
-          {
-            "field": "Year",
-            "type": "quantitative",
-            "title": "Year"
-          }
-        ]
+        }
       }
     },
     {
@@ -114,32 +102,20 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontStyle": "italic",
         "xOffset": 10
       },
       "encoding": {
         "text": {"field": "signed_people", "type": "nominal"},
-        "color": {"value": "white"},
+        "color": {"value": "lightblue"},
         "opacity": {
           "condition": {
             "test": "datum['signed_people'] < -130 ",
             "value": 1
           },
           "value": 0
-        },
-        "tooltip": [
-          {
-            "field": "signed_people",
-            "type": "quantitative",
-            "title": "Population"
-          },
-          {
-            "field": "Year",
-            "type": "quantitative",
-            "title": "Year"
-          }
-        ]
+        }
       }
     }
 

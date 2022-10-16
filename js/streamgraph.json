@@ -6,12 +6,6 @@
     "data": {
         "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/LabourForce_Industry.csv"
     },
-    "params": [{
-        "name": "industry",
-        "select": {"type": "point", "fields": ["Industry"]},
-        "bind": "legend"
-      }],
-    "mark": "area",
     "encoding": {
         "x": {
             "field": "Year",
@@ -23,28 +17,77 @@
         "y": {
             "aggregate": "sum",
             "field": "Value",
+            "type": "quantitative",
             "stack": "center",
             "axis": null
-        },
-        "color": {
-            "field": "Industry",
-            "scale": {
-                "scheme": "set3"
+        }
+    },
+    "layer": [{
+            "params": [{
+                "name": "industryFilter",
+                "select": {
+                    "type": "point",
+                    "fields": ["Industry"]
+                },
+                "bind": "legend"
+            }],
+            "mark": "area",
+            "encoding": {
+                "color": {
+                    "field": "Industry",
+                    "type": "nominal",
+                    "scale": {
+                        "scheme": "category20b"
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "industryFilter",
+                        "value": 1
+                    },
+                    "value": 0.2
+                },
+                "tooltip": [{
+                        "field": "Year",
+                        "type": "ordinal"
+                    },
+                    {
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "Labour Force (000's)"
+                    },
+                    {
+                        "field": "Industry",
+                        "type": "nominal"
+                    }
+
+                ]
             }
         },
-        "opacity": {
-            "condition": {"param": "industry", "value": 1},
-            "value": 0.2
-          },
-          "tooltip":[
-            {"field": "Value", "type": "quantitative", "title": "Labour Force"},
-            {"field": "Industry", "type": "ordinal"}
+        {
+            "mark": {"type": "text","color":"lightcyan","fontSize":30},
+            "encoding": {
+                "text": {
+                    "field": "Industry",
+                    "type": "nominal"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum['Industry'] == 'C' && datum['Year'] == 2019 || datum['Industry'] == 'G' && datum['Year'] == 2020",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
 
-          ]
-    },
-    "config": {"title": {
-        "font": "sans-serif",
-        "fontSize": 16
-      },"background":"#fcf4e4"}
-    
+        }
+    ],
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        },
+        "background": "#fcf4e4"
+    }
+
 }

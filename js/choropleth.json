@@ -54,6 +54,57 @@
           {"calculate": "datum.Unemployment_rate/100", "as": "Unemployment_rate"},
           {"filter": "datum.Year == year_selection"}
         ],
+        "params": [
+          {
+            "name": "State_selection",
+            "select": {
+              "type": "point",
+              "fields": [
+                "State"
+              ]
+            },
+            "bind": {
+              "input": "select",
+              "options": [
+                null,
+                "Johor",
+                "Kedah",
+                "Kelantan",
+                "Melaka",
+                "Negeri Sembilan",
+                "Pahang",
+                "Perak",
+                "Perlis",
+                "Penang",
+                "Sabah",
+                "Sarawak",
+                "Selangor",
+                "Terengganu",
+                "Kuala Lumpur",
+                "Putrajaya"
+              ],
+              "labels": [
+                "Show All",
+                "Johor",
+                "Kedah",
+                "Kelantan",
+                "Melaka",
+                "Negeri Sembilan",
+                "Pahang",
+                "Perak",
+                "Perlis",
+                "Penang",
+                "Sabah",
+                "Sarawak",
+                "Selangor",
+                "Terengganu",
+                "Kuala Lumpur",
+                "Putrajaya"
+              ],
+              "name": "Select State: "
+            }
+          }
+        ],
         "mark": {
           "type": "geoshape",
           "stroke": "white",
@@ -72,12 +123,96 @@
             "range": ["#fee391", "#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"]
           }
           },
+          "opacity": {
+            "condition": {
+              "param": "State_selection",
+              "value": 1
+            },
+            "value": 0
+          },
           "tooltip": [
             {"field": "State", "type": "nominal", "title": "State"},
             {"field": "Unemployed", "type": "quantitative","format":".0f"},
             {"field": "Unemployment_rate", "type": "quantitative","format":".1%","title":"Unemployment Rate"}
           ]
         }
+      },
+      {
+          "data": 
+          {
+            "url": "/data/LabourForce_State.csv"
+          },
+      
+          "transform": [
+            {
+              "lookup": "State",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/js/malaysia.topojson",
+                  "format": {"type": "topojson", "feature": "states"}
+                },
+                "key": "properties.Name"
+  
+              },
+              "as":"geoData"
+            },
+            {"filter": "datum.Year == year_selection"}
+          ],
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            }
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "point",
+                "color": "darkblue",
+                "size": 8,
+                "strokeWidth": 1,
+                "shape":"M7.005 3.1a1 1 0 1 1 1.99 0l-.388 6.35a.61.61 0 0 1-1.214 0L7.005 3.1ZM7 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z",
+                "fill":"lightseagreen"
+              },
+              "encoding": {
+                "opacity": {
+                  "condition": {
+                    "test": "datum.State == 'Selangor'|| datum.State == 'Sabah'|| datum.State == 'Johor'",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "color": "darkblue",
+                "align":"right",
+                "dy": 12,
+                "dx": 0,
+                "fontSize": 13,
+                "fontWeight":"bold"
+              },
+              "encoding": {
+                "text": {
+                  "field": "State",
+                  "type": "nominal"
+                },
+                "opacity": {
+                  "condition": {
+                    "test": "datum.State == 'Selangor'|| datum.State == 'Sabah'|| datum.State == 'Johor'",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            }
+          ]
       },
       {
         "data": {

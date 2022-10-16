@@ -1,54 +1,105 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Labour Force By Educational Attainment",
-    "width": "container",
-    "height": 300,
-    "params": [
-      {
-        "name": "year_selection",
-        "value": 2021,
-        "bind": {
-          "input": "range",
-          "min": 2011,
-          "max": 2021,
-          "step": 1,
-          "name": "Year: "
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Labour Force By Educational Attainment (2011-2021)",
+  "width": "container",
+  "height": 300,
+  "params": [{
+    "name": "year_selection",
+    "value": 2021,
+    "bind": {
+      "input": "range",
+      "min": 2011,
+      "max": 2021,
+      "step": 1,
+      "name": "Year: "
+    }
+  }],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/LabourForce_Education.csv"
+      },
+      "transform": [{
+        "filter": "datum.Year == year_selection"
+      }],
+      "encoding": {
+        "y": {
+          "field": "Education",
+          "type": "nominal",
+          "title": "Education Level",
+          "axis": {
+            "labels": false
+          }
+        },
+        "x": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Labour Force (000)"
+        },
+        "color": {
+          "value": "indigo"
+        },
+        "tooltip": [{
+            "field": "Education",
+            "type": "nominal",
+            "title": "Education Level"
+          },
+          {
+            "field": "Value",
+            "type": "quantitative",
+            "title": "Labour Force (000's)"
+          }
+        ]
+      },
+      "layer": [{
+          "mark": {
+            "type": "bar",
+            "height": 10
+          }
+        },
+        {
+          "mark": {
+            "type": "image",
+            "width": 70,
+            "height": 35
+          },
+          "encoding": {
+            "url": {
+              "field": "URL",
+              "type": "nominal"
+            }
+          }
         }
-      }
-    ],
-    "data": {
-      "url": "https://raw.githubusercontent.com/skri0010/FIT3179Assignment2/main/data/LabourForce_Education.csv"
-    },
-    "transform": [
-      {"filter": "datum.Year == year_selection"}
-    ],
-    "encoding": {
-      "y": {
-        "field": "Education",
-        "type": "nominal",
-        "title":"Education Level",
-        "axis":{"labels": false}
-      },
-      "x": {
-        "field": "Value",
-        "type": "quantitative",
-        "title": "Labour Force (000)"
-      },
-      "color": {"value": "indigo"},
-      "tooltip": [
-        {"field": "Education", "type": "nominal", "title": "Education Level"},
-        {"field": "Value", "type": "quantitative", "title": "Labour Force"}
       ]
     },
-    "layer": [
-      {"mark": {"type": "bar", "height": 10}},
-      {
-        "mark": {"type": "image", "width": 70, "height": 35},
-        "encoding": {"url": {"field": "URL", "type": "nominal"}}
+    {
+      "data": {
+        "values": [{"Year":2021,"Average":3590.04},{"Year":2020,"Average":3740.2},{"Year":2019,"Average":3600.2},{"Year":2018,"Average":3442.7},{"Year":2017,"Average":3470.21},{"Year":2016,"Average":3587.22},{"Year":2015,"Average":3590.88},{"Year":2014,"Average":3571.22},{"Year":2013,"Average":3560.98},{"Year":2012,"Average":3467.082353},{"Year":2011,"Average":3388.11}]
+      },
+      "transform": [{
+        "filter": "datum.Year == year_selection"
+      }],
+      "mark": {
+        "type": "rule",
+        "color": "red"
+      },
+      "encoding": {
+        "x": {
+          "field": "Average",
+          "type": "quantitative"
+        },
+        "tooltip":[
+          {"field":"Average","type": "quantitative","title":"Yearly Average Is "}
+      ]
       }
-    ],
-    "config": {"title": {
+    }
+
+  ],
+  "config": {
+    "title": {
       "font": "sans-serif",
       "fontSize": 16
-    },"background":"#fcf4e4"}
+    },
+    "background": "#fcf4e4"
   }
+}
